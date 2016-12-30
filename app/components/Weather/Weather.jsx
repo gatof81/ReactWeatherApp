@@ -5,11 +5,27 @@ var OpenWeatherMap = require('OpenWeatherMap');
 var ErrorModal = require('ErrorModal');
 
 var Weather = React.createClass({
+    componentDidMount: function(){
+      var location = this.props.location.query.location;
+      if(location && location.length > 0){
+        this.handleWeatherForm(location);
+        window.location.hash = '#/'
+      }
+    },
+    componentWillReceiveProps:function(props){
+      var location = props.location.query.location;
+      if(location && location.length > 0){
+        this.handleWeatherForm(location);
+        window.location.hash = '#/'
+      }
+    },
     handleWeatherForm: function(loc) {
 
       this.setState({
         isLoading:true,
-        errorMessage:undefined
+        errorMessage:undefined,
+        location:undefined,
+        temp:undefined
       });
 
       OpenWeatherMap.getTemp(loc).then( temp => {
@@ -63,7 +79,7 @@ var Weather = React.createClass({
 
         return (
             <div>
-                <h1 className="text-center">Get Weather</h1>
+                <h1 className="text-center page-title">Get Weather</h1>
                 <WeatherForm onSetWeather={this.handleWeatherForm}/>
                 {renderMessage()}
                 {renderError()}
