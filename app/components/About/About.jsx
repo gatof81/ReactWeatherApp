@@ -8,16 +8,14 @@ var About = props => {
         This is a wheather application build on React. I build this using The
         complete React web developer course.
       </p>
-      <p>
-        <ol>
-          <li>
-            <a href="https://facebook.github.io/react">React</a>
-          </li>
-          <li>
-            <a href="http://openweathermap.org">Open Weather Map</a>
-          </li>
-        </ol>
-      </p>
+      <ol>
+        <li>
+          <a href="https://facebook.github.io/react">React</a>
+        </li>
+        <li>
+          <a href="http://openweathermap.org">Open Weather Map</a>
+        </li>
+      </ol>
     </div>
   );
 }

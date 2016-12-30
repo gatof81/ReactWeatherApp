@@ -6,9 +6,9 @@ var WeatherInfo = props => {
 
   function renderMessage () {
     if(temp && loc){
-      return <div>It's it {temp} in {loc}.</div>;
+      return <div className="textCentered">It's it {temp} in {loc}.</div>;
     }else if(errorMessage){
-      return <h3>couldn't fetch temp for {loc}.</h3>
+      return <h3 className="textCentered">couldn't fetch temp for {loc}.</h3>
     }
   }
 
